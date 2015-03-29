@@ -7,5 +7,8 @@ $.getJSON('data.json', function(data) {
     var marker = L.marker(markerData['coords']);
     marker.bindPopup('<b>' + markerData['title'] + '</b>');
     marker.addTo(map);
+    marker.on('click', function(e) {
+      map.panTo(e.latlng);
+    });
   });
 });
